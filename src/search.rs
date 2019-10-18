@@ -77,14 +77,14 @@ impl Search {
 
     /// Moves one page forward.
     pub fn next_page(&mut self) {
-        if self.page < (self.search().unwrap().total_count() as usize/self.per_page) {
+        if self.page < std::usize::MAX {
             self.page += 1; 
         }
     }
 
     /// Moves one page backward.
     pub fn prev_page(&mut self) {
-        if self.page >= 2 {
+        if self.page > std::usize::MIN {
             self.page -= 1;
         }
     }
